@@ -103,3 +103,4 @@ This course introduces B.Des students to the fundamentals of immersive media, in
 - Narrative Sequence and Scene Progression
 - Combining Visual and Audio Cues for Storytelling
 - Creating a Short 360° Immersive Experience
+---
