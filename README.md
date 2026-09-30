@@ -1,4 +1,4 @@
-## Introduction to Immersive Media
+## Course Plan: Introduction to Immersive Media (CDES408)
 
 This course introduces B.Des students to the fundamentals of immersive media, including spatial design, perception, interaction, presence and immersive storytelling. Students will use **A-Frame** as the primary prototyping environment to implement and experience these concepts.
 
