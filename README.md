@@ -6,7 +6,7 @@ This course introduces B.Des students to the fundamentals of immersive media, in
 
 ---
 
-### Module 1: Foundations of XR and 3D Space
+### 🧩 Module 1: Foundations of XR and 3D Space
 
 **Week 1: Introduction to Immersive Media**
 - Understanding AR, VR, MR, XR and 360° Media
@@ -34,7 +34,7 @@ This course introduces B.Des students to the fundamentals of immersive media, in
 
 ---
 
-### Module 2: Designing Physical–Digital Space with Augmented Reality
+### 🧩 Module 2: Designing Physical–Digital Space with Augmented Reality
 
 **Week 5: Mobile AR — Building the Experience**
 - Placing Digital Objects in Physical Space
@@ -61,7 +61,7 @@ This course introduces B.Des students to the fundamentals of immersive media, in
 
 ---
 
-### Module 3: Designing Immersive Space with Virtual Reality
+### 🧩 Module 3: Designing Immersive Space with Virtual Reality
 
 **Week 9: Building a VR Environment**
 - Human Scale and Proportion in VR
@@ -85,7 +85,7 @@ This course introduces B.Des students to the fundamentals of immersive media, in
 
 ---
 
-### Module 4: Viewpoint and Storytelling with 360° Video
+### 🧩 Module 4: Viewpoint and Storytelling with 360° Video
 
 **Week 13: Understanding 360° Video**
 - 360° Video, Equirectangular Media and Spherical Viewing
