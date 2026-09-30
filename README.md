@@ -15,8 +15,7 @@ This course introduces B.Des students to the fundamentals of immersive media, in
 
 **Week 2: Understanding 3D Space**
 - Exploring 3D Space with A-Frame
-- X, Y, Z Coordinates and 3D Positioning
-- Position, Rotation and Scale
+- 3D Coordinate Systems, Position, Rotation and Scale
 - Camera, Viewpoint and Perspective vs Orthographic Projection
 - Depth, Distance and Object Relationships
 
