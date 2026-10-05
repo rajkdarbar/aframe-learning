@@ -87,10 +87,48 @@
 <body>
 
     <a-scene xr-mode-ui="XRMode: ar" webxr="optionalFeatures: hit-test;" simple-hit-test>
+
         <a-ring id="marker" radius-inner="0.025" radius-outer="0.04" rotation="-90 0 0" color="yellow" material="opacity: 0.7; transparent: true" visible="false">
         </a-ring>
 
+        <a-box id="cube" width="0.2" height="0.2" depth="0.2" color="tomato" visible="false">
+        </a-box>
+
     </a-scene>
+
+    <script>
+
+        const scene = document.querySelector('a-scene');
+
+        scene.addEventListener('enter-vr', () => {
+
+            const session = scene.renderer.xr.getSession();
+
+            if (!session) return;
+
+            session.addEventListener('select', () => {
+
+                const marker = document.querySelector('#marker');
+                const cube = document.querySelector('#cube');
+
+                if (!marker.object3D.visible) return;
+
+                // Put cube at marker position
+                cube.object3D.position.copy(
+                    marker.object3D.position
+                );
+
+                // Cube is 0.2m tall.
+                // Raise it by half so its bottom rests on the floor.
+                cube.object3D.position.y += 0.1;
+
+                cube.object3D.visible = true;
+
+            });
+
+        });
+
+    </script>
 
 </body>
 
