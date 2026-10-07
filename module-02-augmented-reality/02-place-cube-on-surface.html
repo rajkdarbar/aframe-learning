@@ -30,7 +30,6 @@
                                 space: viewerSpace
                             });
 
-                        // Use A-Frame / Three.js XR reference space
                         this.refSpace =
                             renderer.xr.getReferenceSpace();
 
@@ -41,7 +40,6 @@
                     }
                 });
             },
-
 
             tick: function () {
 
@@ -74,13 +72,11 @@
                     marker.object3D.visible = true;
 
                 } else {
-
                     marker.object3D.visible = false;
                 }
             }
         });
     </script>
-
 </head>
 
 
@@ -96,38 +92,54 @@
 
     </a-scene>
 
-    <script>
 
+    <script>
         const scene = document.querySelector('a-scene');
+
+        function placeCube() {
+
+            const marker = document.querySelector('#marker');
+            const cube = document.querySelector('#cube');
+
+            if (!marker.object3D.visible) return;
+
+            cube.object3D.position.copy(
+                marker.object3D.position
+            );
+
+            cube.object3D.position.y += 0.1;
+
+            cube.object3D.visible = true;
+
+            console.log("Cube placed");
+        }
+
 
         scene.addEventListener('enter-vr', () => {
 
-            const session = scene.renderer.xr.getSession();
+            const session =
+                scene.renderer.xr.getSession();
 
-            if (!session) return;
-
-            session.addEventListener('select', () => {
-
-                const marker = document.querySelector('#marker');
-                const cube = document.querySelector('#cube');
-
-                if (!marker.object3D.visible) return;
-
-                // Put cube at marker position
-                cube.object3D.position.copy(
-                    marker.object3D.position
+            if (session) {
+                session.addEventListener(
+                    'select',
+                    placeCube
                 );
+            }
 
-                // Cube is 0.2m tall.
-                // Raise it by half so its bottom rests on the floor.
-                cube.object3D.position.y += 0.1;
+            scene.canvas.addEventListener(
+                'click',
+                placeCube
+            );
 
-                cube.object3D.visible = true;
-
-            });
-
+            scene.canvas.addEventListener(
+                'touchend',
+                (event) => {
+                    event.preventDefault();
+                    placeCube();
+                }
+            );
         });
-
     </script>
 
 </body>
