@@ -90,9 +90,6 @@
         <a-ring id="marker" radius-inner="0.025" radius-outer="0.04" rotation="-90 0 0" color="yellow" material="opacity: 0.7; transparent: true" visible="false">
         </a-ring>
 
-        <a-box id="cube" width="0.2" height="0.2" depth="0.2" color="tomato" visible="false">
-        </a-box>
-
     </a-scene>
 
 
@@ -103,17 +100,28 @@
         function placeCube() {
 
             const marker = document.querySelector('#marker');
-            const cube = document.querySelector('#cube');
 
             if (!marker.object3D.visible) return;
 
-            cube.object3D.position.copy(
-                marker.object3D.position
-            );
+            // Create a new cube
+            const cube = document.createElement('a-box');
 
-            cube.object3D.position.y += 0.1;
+            cube.setAttribute('width', '0.2');
+            cube.setAttribute('height', '0.2');
+            cube.setAttribute('depth', '0.2');
+            cube.setAttribute('color', 'tomato');
 
-            cube.object3D.visible = true;
+            // Copy marker position
+            const position = marker.object3D.position;
+
+            cube.setAttribute('position', {
+                x: position.x,
+                y: position.y + 0.1,
+                z: position.z
+            });
+
+            // Add new cube to scene
+            scene.appendChild(cube);
         }
 
         scene.addEventListener('enter-vr', () => {
