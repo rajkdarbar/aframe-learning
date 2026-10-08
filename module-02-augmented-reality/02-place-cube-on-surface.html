@@ -8,6 +8,7 @@
     <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
 
     <script>
+
         AFRAME.registerComponent('simple-hit-test', {
 
             init: function () {
@@ -76,7 +77,9 @@
                 }
             }
         });
+
     </script>
+    
 </head>
 
 
@@ -94,6 +97,7 @@
 
 
     <script>
+
         const scene = document.querySelector('a-scene');
 
         function placeCube() {
@@ -111,35 +115,13 @@
 
             cube.object3D.visible = true;
 
-            console.log("Cube placed");
+            alert("Cube placed");
         }
 
-
         scene.addEventListener('enter-vr', () => {
-
-            const session =
-                scene.renderer.xr.getSession();
-
-            if (session) {
-                session.addEventListener(
-                    'select',
-                    placeCube
-                );
-            }
-
-            scene.canvas.addEventListener(
-                'click',
-                placeCube
-            );
-
-            scene.canvas.addEventListener(
-                'touchend',
-                (event) => {
-                    event.preventDefault();
-                    placeCube();
-                }
-            );
+            scene.canvas.addEventListener('touchend', placeCube);
         });
+
     </script>
 
 </body>
