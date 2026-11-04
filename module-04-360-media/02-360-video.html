@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+
+    <style>
+        #playButton {
+            position: fixed;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            z-index: 10;
+
+            padding: 12px 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <button id="playButton">
+        Play 360 Video
+    </button>
+
+
+    <a-scene>
+
+        <a-assets>
+
+            <video id="video360" src="../assets/videos/city-360-video.mp4" loop muted playsinline webkit-playsinline>
+            </video>
+
+        </a-assets>
+
+
+        <a-videosphere src="#video360">
+        </a-videosphere>
+
+
+        <a-camera look-controls="touchEnabled: true;
+                           magicWindowTrackingEnabled: true">
+        </a-camera>
+
+    </a-scene>
+
+
+    <script>
+
+        const video = document.querySelector('#video360');
+        const playButton = document.querySelector('#playButton');
+
+        playButton.addEventListener('click', () => {
+
+            video.play();
+
+            playButton.style.display = 'none';
+
+        });
+
+    </script>
+
+</body>
+
+</html>
