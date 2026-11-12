@@ -137,10 +137,10 @@
         <div id="crosshair">+</div>
 
         <div id="actions">
-            <button disabled>Color</button>
-            <button disabled>Animate</button>
-            <button disabled>Delete</button>
-            <button disabled>Label</button>
+            <button id="color-button">Color</button>
+            <button id="animate-button">Animate</button>
+            <button id="delete-button">Delete</button>
+            <button id="label-button">Label</button>
         </div>
 
     </div>
@@ -177,6 +177,7 @@
             cube.setAttribute('height', '0.2');
             cube.setAttribute('depth', '0.2');
             cube.setAttribute('color', 'tomato');
+            cube.dataset.baseColor = 'tomato';
 
             // This makes the cube selectable
             cube.setAttribute('class', 'selectable');
@@ -205,7 +206,7 @@
 
             // Restore previous cube
             if (selectedCube) {
-                selectedCube.setAttribute('color', 'tomato');
+                selectedCube.setAttribute('color', selectedCube.dataset.baseColor);
             }
 
 
@@ -242,10 +243,25 @@
 
 
         // Prevent UI button touches from triggering AR selection.
-        document.querySelector('#overlay').addEventListener(
-            'beforexrselect',
-            (event) => event.preventDefault()
-        );
+        document.querySelectorAll('#overlay button')
+            .forEach(button => {
+
+                button.addEventListener(
+                    'beforexrselect',
+                    (event) => event.preventDefault()
+                );
+
+            });
+
+        document.querySelector('#color-button')
+            .addEventListener('click', () => {
+
+                if (!selectedCube) return;
+
+                selectedCube.dataset.baseColor = 'blue';
+                selectedCube.setAttribute('color', 'blue');
+
+            });
 
 
         scene.addEventListener('enter-vr', () => {
