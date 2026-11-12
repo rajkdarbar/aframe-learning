@@ -111,7 +111,7 @@
                         pose.transform.position.z
                     );
 
-                    marker.object3D.visible = true;
+                    marker.object3D.visible = (mode === 'add');
 
                 } else {
                     marker.object3D.visible = false;
